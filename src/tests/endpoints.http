@@ -20,6 +20,14 @@ GET http://localhost:5000/cliente
 
 ###
 
+GET http://localhost:5000/cliente/ok
+
+### 
+
+GET http://localhost:5000/cliente/not_ok
+
+###
+
 PUT http://localhost:5000/cobranca
 Content-Type: application/json
 
@@ -35,3 +43,15 @@ Content-Type: application/json
 ### 
 
 GET http://localhost:5000/cobranca
+
+###
+
+GET http://localhost:5000/cobranca/pagas
+
+###
+
+GET http://localhost:5000/cobranca/previstas
+
+###
+
+GET http://localhost:5000/cobranca/vencidas
