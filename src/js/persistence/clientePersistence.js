@@ -14,7 +14,7 @@ const SELECT_ALL_CLIENTES_OK =
             WHERE cobrancas.status="paga" OR cobrancas.status="prevista"`;
 
 const SELECT_ALL_CLIENTES_NOT_OK =
-`SELECT clientes.nome, clientes.vencimento, cobrancas.valor
+`SELECT clientes.nome, cobrancas.vencimento, cobrancas.valor
         FROM clientes
         JOIN cobrancas
         ON clientes.id = cobrancas.cliente_id

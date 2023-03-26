@@ -10,7 +10,7 @@ const port = 5000;
 
 app.use(cors()); // Just use in development. In production, set policies correctly!
 app.use(express.json());
-app.use('/cliente', clienteRouter);
-app.use('/cobranca', cobrancaRouter);
+app.use('/clientes', clienteRouter);
+app.use('/cobrancas', cobrancaRouter);
 
 app.listen(port, () => { console.log('Listening on port ' + port); });

@@ -1,5 +1,5 @@
 import express from 'express';
-import { createCobranca, retrieveCobrancasAndClientes } from '../persistence/cobrancaPersistence.js';
+import { createCobranca, retrieveCobrancasAndClientes, retrievePaidCobrancasAndClientes, retrieveExpectedCobrancasAndClientes, retrieveOverdueCobrancasAndClientes, retrievePaidCharges, retrieveExpectedCharges, retrieveOverdueCharges } from '../persistence/cobrancaPersistence.js';
 
 const router = express.Router();
 
@@ -22,7 +22,6 @@ router.put('/', async (req, res) => {
     }
 });
 
-// Retrieve a gambler by gambler_id (provided via query param)
 router.get('/', async (req, res) => {
     try {
         /*if (req.query.gambler_id) {
@@ -37,6 +36,48 @@ router.get('/', async (req, res) => {
         res.status(500).send('Error retrieving charges');
     }
 });
+
+router.get('/pagas', async (req, res) => {
+    try {
+            const allPaidCobrancas = await retrievePaidCobrancasAndClientes();
+            return res.json(allPaidCobrancas);
+    } catch (err) {
+        console.log(err);
+        res.status(500).send('Error retrieving charges');
+    }
+});
+
+router.get('/previstas', async (req, res) => {
+    try {
+        /*if (req.query.gambler_id) {
+            const bets = await retrieveBetsByGamblerId(req.query.gambler_id);
+            return res.json(bets);
+        } else {*/
+            const allExpectedCobrancas = await retrieveExpectedCobrancasAndClientes();
+            return res.json(allExpectedCobrancas);
+        /*}*/
+    } catch (err) {
+        console.log(err);
+        res.status(500).send('Error retrieving charges');
+    }
+});
+
+router.get('/vencidas', async (req, res) => {
+    try {
+        /*if (req.query.gambler_id) {
+            const bets = await retrieveBetsByGamblerId(req.query.gambler_id);
+            return res.json(bets);
+        } else {*/
+            const allOverdueCobrancas = await retrieveOverdueCobrancasAndClientes();
+            return res.json(allOverdueCobrancas);
+        /*}*/
+    } catch (err) {
+        console.log(err);
+        res.status(500).send('Error retrieving charges');
+    }
+});
+
+
 
 
 export default router;

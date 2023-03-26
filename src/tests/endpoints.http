@@ -1,9 +1,9 @@
-PUT http://localhost:5000/cliente
+PUT http://localhost:5000/clientes
 Content-Type: application/json
 
 {
-    "nome": "Karol",
-    "email": "karol@gmail.com",
+    "nome": "Maria",
+    "email": "maria@gmail.com",
     "cpf": "15265932",
     "telefone": "698763235",
     "cep": "2598532",
@@ -16,42 +16,38 @@ Content-Type: application/json
 
 ###
 
-GET http://localhost:5000/cliente
-
-###
-
-GET http://localhost:5000/cliente/ok
+GET http://localhost:5000/clientes/ok
 
 ### 
 
-GET http://localhost:5000/cliente/not_ok
+GET http://localhost:5000/clientes/not_ok
 
 ###
 
-PUT http://localhost:5000/cobranca
+PUT http://localhost:5000/cobrancas
 Content-Type: application/json
 
 {
-    "nome": "detalhe",
-    "descricao": "dksjdal",
-    "vencimento": "2022/10/05",
-    "valor": "5000",
-    "status": "paga",
-    "cliente_id": "b08a2a3b-6672-4e08-87a7-5e61e13fedd7"
+    "nome": "Cobrança Y",
+    "descricao": "Cobrança Y",
+    "vencimento": "2023/04/04",
+    "valor": "3027",
+    "status": "prevista",
+    "cliente_id": "f6ff4b5f-6275-4ee3-a9cf-8c67d4a9b9d1"
 }
 
 ### 
 
-GET http://localhost:5000/cobranca
+GET http://localhost:5000/cobrancas
 
 ###
 
-GET http://localhost:5000/cobranca/pagas
+GET http://localhost:5000/cobrancas/pagas
 
 ###
 
-GET http://localhost:5000/cobranca/previstas
+GET http://localhost:5000/cobrancas/previstas
 
 ###
 
-GET http://localhost:5000/cobranca/vencidas
+GET http://localhost:5000/cobrancas/vencidas
